@@ -1,0 +1,385 @@
+WOCacheSpec61 MediaCache struct {
+	mVersion Version struct {
+		Prim int,
+		Sec int,
+		Fix int,
+		Beta int
+	},
+	mPixelCompOrder int,
+	mShaderLevel int,
+	mItems list MCItem struct {
+		mMediaOID int,
+		mIsUsed bool,
+		mMediaPath string,
+		mLastSrcModDate int,
+		mMediaFileSize int,
+		mState MCState enum {
+			KMC_Unknown 0,
+			KMC_UnCached 1,
+			KMC_Cached 2,
+			KMC_Empty 3,
+			KMC_Missing 4
+		},
+		mAlphaType AlphaMode enum {
+			KAMUnknown 0,
+			KAMNoAlpha 1,
+			KAMStraight 2,
+			KAMPreWhite 3,
+			KAMPreBlack 4
+		}
+	} true,
+	mSCItems list SCItem struct {
+		mRecipe ShaderRecipe struct {
+			mIdentifiers string,
+			mNumbIdentifiers int,
+			mHash int
+		},
+		mLevel int,
+		mByteCode blob,
+		mTotalItemCounts array 3 int,
+		mExtraTextureIndexes array 2 int,
+		mProxyOID int
+	} true,
+	mFlashTransMode FlashTransMode enum {
+		kFM_Unknown 0,
+		kFM_AlphaOK 1,
+		kFM_AlphaBad 2
+	}
+} {
+	{ 6, 5, 0, 0 }, // mVersion Prim Sec Fix Beta
+	1111970369, // mPixelCompOrder
+	4, // mShaderLevel
+	{ // mItems
+		ModelMC struct extends {
+			MCItem
+		} {
+			mRootNode ModelMC::Node struct {
+				mPath string,
+				mTransform array 16 float,
+				mBoundingBox AABox3D struct extends {
+					Point3D struct extends {
+						_pvs3DBase struct {
+							x float,
+							y float,
+							z float
+						}
+					} {
+					}
+				} {
+					MSize AADim3D struct extends {
+						_pvs3DBase
+					} {
+					}
+				},
+				mMeshes list ModelMC::MeshRef struct {
+					meshIndex int,
+					numVertices int,
+					numIndices int,
+					defaultColor IColor struct {
+						r int,
+						g int,
+						b int,
+						a int
+					},
+					boundingBox AABox3D
+				} false,
+				mChildren list ModelMC::Node false
+			},
+			mMeshes list MeshCache struct extends {
+				CacheBase struct {
+					mState MCState,
+					mDataSize int
+				}
+			} {
+				mID int,
+				mNumVerts int,
+				mNumInds int
+			} false,
+			mModelFlags int
+		} {
+			1, // mMediaOID
+			true, // mIsUsed
+			"kyrka_dome.obj", // mMediaPath
+			1583243652, // mLastSrcModDate
+			32036, // mMediaFileSize
+			2, // mState
+			1, // mAlphaType
+			{ // mRootNode
+				":kyrka_dome.obj", // mPath
+				{ // mTransform
+					1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					1
+				},
+				{ // mBoundingBox
+					-20.05, // x
+					-20.05, // y
+					-20.05, // z
+					{ 40.1, 20.05, 40.1 } // MSize x y z
+				},
+				{ // mMeshes
+				},
+				{ // mChildren
+					{
+						":kyrka_dome.obj:Sphere", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-20.05, // x
+							-20.05, // y
+							-20.05, // z
+							{ 40.1, 20.05, 40.1 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								0, // meshIndex
+								992, // numVertices
+								1440, // numIndices
+								{ 255, 255, 255, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-20.05, // x
+									-20.05, // y
+									-20.05, // z
+									{ 40.1, 20.05, 40.1 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					}
+				}
+			},
+			{ // mMeshes
+				{ 2, 0, 0, 992, 1440 } // mState mDataSize mID mNumVerts mNumInds
+			},
+			0 // mModelFlags
+		},
+		VideoMC struct extends {
+			ContMC struct extends {
+				MCItem
+			} {
+				mPlayer PlayerHint enum {
+					kPHNone 0,
+					kPHQuickTime 1,
+					kPHDirectShow 2,
+					kPHImageSequence 3
+				},
+				mFilterGraph reference FilterGraphList struct {
+					mList list FilterGraphNode struct extends {
+						FilterSpec struct {
+							mFilterUID DF_GUID struct {
+								Data1 int,
+								Data2 int,
+								Data3 int,
+								Data4 array 8 int
+							},
+							mOutputName string,
+							mTargetInputPinName string
+						}
+					} {
+						mMoreOutputs list FilterGraphList false
+					} false
+				} false
+			}
+		} {
+			mFormat VideoFormat enum {
+				kVMC_Unspecified 0,
+				kVMC_MPEG 1,
+				kVMC_H264 2,
+				kVMC_MJPG 3,
+				kVMC_WMV 4,
+				kVMC_HAPQ 5
+			},
+			mActivePaths reference PathList struct {
+				mPaths list CuePath struct {
+					mHashValue int,
+					mLeafID int,
+					mPath list CuePathElem struct {
+						mID int
+					} false
+				} false
+			} false,
+			mNativePlayer PlayerHint,
+			mAllowHardwareAcc bool,
+			mDispFiles list DispFile struct {
+				MFile string
+			} false
+		} {
+			3, // mMediaOID
+			true, // mIsUsed
+			"fire.mov", // mMediaPath
+			1583225734, // mLastSrcModDate
+			10481318, // mMediaFileSize
+			2, // mState
+			1, // mAlphaType
+			2, // mPlayer
+			{ // mFilterGraph
+				{ // mList
+					{
+						{ 3828804533, 21071, 4558, // mFilterUID Data1 Data2 Data3 Data4
+							{ 159, 83, 0, 32, 175, 11, 167, 112 }
+						},
+						"", // mOutputName
+						"", // mTargetInputPinName
+						{ // mMoreOutputs
+						}
+					},
+					{
+						{ 710278930, 5719, 16855, // mFilterUID Data1 Data2 Data3 Data4
+							{ 157, 45, 162, 205, 198, 151, 143, 242 }
+						},
+						"Output", // mOutputName
+						"Input", // mTargetInputPinName
+						{ // mMoreOutputs
+							{
+								{ // mList
+									{
+										{ 3790708920, 48878, 18701, // mFilterUID Data1 Data2 Data3 Data4
+											{ 186, 124, 6, 108, 64, 181, 226, 185 }
+										},
+										"Audio Output 0", // mOutputName
+										"In", // mTargetInputPinName
+										{ // mMoreOutputs
+										}
+									},
+									{
+										{ 2380471941, 4348, 16520, // mFilterUID Data1 Data2 Data3 Data4
+											{ 136, 97, 224, 236, 142, 112, 116, 74 }
+										},
+										"Out", // mOutputName
+										"Input", // mTargetInputPinName
+										{ // mMoreOutputs
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						{ 2528760045, 36115, 16753, // mFilterUID Data1 Data2 Data3 Data4
+							{ 169, 131, 184, 77, 136, 214, 39, 190 }
+						},
+						"Video Output 0", // mOutputName
+						"In", // mTargetInputPinName
+						{ // mMoreOutputs
+						}
+					},
+					{
+						{ 1903629632, 8215, 4559, // mFilterUID Data1 Data2 Data3 Data4
+							{ 174, 38, 0, 32, 175, 215, 152, 33 }
+						},
+						"Video", // mOutputName
+						"In", // mTargetInputPinName
+						{ // mMoreOutputs
+						}
+					}
+				}
+			},
+			2, // mFormat
+			#0, // mActivePaths
+			2, // mNativePlayer
+			true, // mAllowHardwareAcc
+			{ // mDispFiles
+			}
+		}
+	},
+	{ // mSCItems
+		SCItem {
+			{ "Opac", 1, 1667330127 }, // mRecipe mIdentifiers mNumbIdentifiers mHash
+			4, // mLevel
+			{ // mByteCode
+				428,
+				
+				0003FFFFFEFF4900435441421C000000EF0000000003FFFF050000001C00
+				000000010000E80000008000000002000100010006008800000000000000
+				980000000300020001000A00A400000000000000B4000000020000000100
+				02008800000000000000C20000000200020001000A008800000000000000
+				CB0000000300000001000200D8000000000000005F626C656E6400AB0100
+				03000100040001000000000000005F626C656E64496D6700ABAB04000C00
+				0100010001000000000000005F626C656E644F66667353636C005F6F7061
+				63697479005F736F75726365496D6700ABAB04000C000100010001000000
+				0000000070735F335F30004D6963726F736F66742028522920484C534C20
+				53686164657220436F6D70696C657220392E32392E3935322E3331313100
+				1F00000205000080000003901F0000020000009000080FA01F0000020000
+				009002080FA004000004000003800000E4900000EEA00000E4A042000003
+				00000F800000E4800208E4A04200000301000F800000E4900008E4A01200
+				000402000F80010000A00000E4800100E4800500000300080F800200E480
+				020000A0FFFF0000
+			},
+			{ // mTotalItemCounts
+				0,
+				0,
+				0
+			},
+			{ // mExtraTextureIndexes
+				0,
+				0
+			},
+			2 // mProxyOID
+		},
+		SCItem {
+			{ "ExitOpac", 2, 3620399252 }, // mRecipe mIdentifiers mNumbIdentifiers mHash
+			4, // mLevel
+			{ // mByteCode
+				476,
+				
+				0003FFFFFEFF4900435441421C000000EF0000000003FFFF050000001C00
+				000000010000E80000008000000002000100010006008800000000000000
+				980000000300020001000A00A400000000000000B4000000020000000100
+				02008800000000000000C20000000200020001000A008800000000000000
+				CB0000000300000001000200D8000000000000005F626C656E6400AB0100
+				03000100040001000000000000005F626C656E64496D6700ABAB04000C00
+				0100010001000000000000005F626C656E644F66667353636C005F6F7061
+				63697479005F736F75726365496D6700ABAB04000C000100010001000000
+				0000000070735F335F30004D6963726F736F66742028522920484C534C20
+				53686164657220436F6D70696C657220392E32392E3935322E3331313100
+				5100000503000FA00AD723BC0000000000000000000000001F0000020500
+				0080000003901F0000020000009000080FA01F0000020000009002080FA0
+				04000004000003800000E4900000EEA00000E4A04200000300000F800000
+				E4800208E4A04200000301000F800000E4900008E4A01200000402000F80
+				010000A00000E4800100E4800200000300000F800200FF80030000A00500
+				000300080F800200E480020000A04100000100000F80FFFF0000
+			},
+			{ // mTotalItemCounts
+				0,
+				0,
+				0
+			},
+			{ // mExtraTextureIndexes
+				0,
+				0
+			},
+			6 // mProxyOID
+		}
+	},
+	0 // mFlashTransMode
+}
