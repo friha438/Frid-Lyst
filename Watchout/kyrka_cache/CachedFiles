@@ -46,143 +46,10 @@ WOCacheSpec61 MediaCache struct {
 		kFM_AlphaBad 2
 	}
 } {
-	{ 6, 5, 0, 0 }, // mVersion Prim Sec Fix Beta
+	{ 6, 6, 0, 0 }, // mVersion Prim Sec Fix Beta
 	1111970369, // mPixelCompOrder
 	4, // mShaderLevel
 	{ // mItems
-		ModelMC struct extends {
-			MCItem
-		} {
-			mRootNode ModelMC::Node struct {
-				mPath string,
-				mTransform array 16 float,
-				mBoundingBox AABox3D struct extends {
-					Point3D struct extends {
-						_pvs3DBase struct {
-							x float,
-							y float,
-							z float
-						}
-					} {
-					}
-				} {
-					MSize AADim3D struct extends {
-						_pvs3DBase
-					} {
-					}
-				},
-				mMeshes list ModelMC::MeshRef struct {
-					meshIndex int,
-					numVertices int,
-					numIndices int,
-					defaultColor IColor struct {
-						r int,
-						g int,
-						b int,
-						a int
-					},
-					boundingBox AABox3D
-				} false,
-				mChildren list ModelMC::Node false
-			},
-			mMeshes list MeshCache struct extends {
-				CacheBase struct {
-					mState MCState,
-					mDataSize int
-				}
-			} {
-				mID int,
-				mNumVerts int,
-				mNumInds int
-			} false,
-			mModelFlags int
-		} {
-			1, // mMediaOID
-			true, // mIsUsed
-			"kyrka_dome.obj", // mMediaPath
-			1583243652, // mLastSrcModDate
-			32036, // mMediaFileSize
-			2, // mState
-			1, // mAlphaType
-			{ // mRootNode
-				":kyrka_dome.obj", // mPath
-				{ // mTransform
-					1,
-					0,
-					0,
-					0,
-					0,
-					-1,
-					0,
-					0,
-					0,
-					0,
-					-1,
-					0,
-					0,
-					0,
-					0,
-					1
-				},
-				{ // mBoundingBox
-					-20.05, // x
-					-20.05, // y
-					-20.05, // z
-					{ 40.1, 20.05, 40.1 } // MSize x y z
-				},
-				{ // mMeshes
-				},
-				{ // mChildren
-					{
-						":kyrka_dome.obj:Sphere", // mPath
-						{ // mTransform
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1
-						},
-						{ // mBoundingBox
-							-20.05, // x
-							-20.05, // y
-							-20.05, // z
-							{ 40.1, 20.05, 40.1 } // MSize x y z
-						},
-						{ // mMeshes
-							{
-								0, // meshIndex
-								992, // numVertices
-								1440, // numIndices
-								{ 255, 255, 255, 255 }, // defaultColor r g b a
-								{ // boundingBox
-									-20.05, // x
-									-20.05, // y
-									-20.05, // z
-									{ 40.1, 20.05, 40.1 } // MSize x y z
-								}
-							}
-						},
-						{ // mChildren
-						}
-					}
-				}
-			},
-			{ // mMeshes
-				{ 2, 0, 0, 992, 1440 } // mState mDataSize mID mNumVerts mNumInds
-			},
-			0 // mModelFlags
-		},
 		VideoMC struct extends {
 			ContMC struct extends {
 				MCItem
@@ -235,7 +102,7 @@ WOCacheSpec61 MediaCache struct {
 			} false
 		} {
 			3, // mMediaOID
-			true, // mIsUsed
+			false, // mIsUsed
 			"fire.mov", // mMediaPath
 			1583225734, // mLastSrcModDate
 			10481318, // mMediaFileSize
@@ -310,6 +177,487 @@ WOCacheSpec61 MediaCache struct {
 			true, // mAllowHardwareAcc
 			{ // mDispFiles
 			}
+		},
+		ModelMC struct extends {
+			MCItem
+		} {
+			mRootNode ModelMC::Node struct {
+				mPath string,
+				mTransform array 16 float,
+				mBoundingBox AABox3D struct extends {
+					Point3D struct extends {
+						_pvs3DBase struct {
+							x float,
+							y float,
+							z float
+						}
+					} {
+					}
+				} {
+					MSize AADim3D struct extends {
+						_pvs3DBase
+					} {
+					}
+				},
+				mMeshes list ModelMC::MeshRef struct {
+					meshIndex int,
+					numVertices int,
+					numIndices int,
+					defaultColor IColor struct {
+						r int,
+						g int,
+						b int,
+						a int
+					},
+					boundingBox AABox3D
+				} false,
+				mChildren list ModelMC::Node false
+			},
+			mMeshes list MeshCache struct extends {
+				CacheBase struct {
+					mState MCState,
+					mDataSize int
+				}
+			} {
+				mID int,
+				mNumVerts int,
+				mNumInds int
+			} false,
+			mModelFlags int
+		} {
+			7, // mMediaOID
+			false, // mIsUsed
+			"/C:/Users/hartm/MT/TNM094/kyrka.obj", // mMediaPath
+			1584525626, // mLastSrcModDate
+			53903, // mMediaFileSize
+			2, // mState
+			1, // mAlphaType
+			{ // mRootNode
+				":kyrka.obj", // mPath
+				{ // mTransform
+					1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					1
+				},
+				{ // mBoundingBox
+					-21.8498, // x
+					-21.346, // y
+					-21.8498, // z
+					{ 43.6997, 22.8789, 43.6997 } // MSize x y z
+				},
+				{ // mMeshes
+				},
+				{ // mChildren
+					{
+						":kyrka.obj:Sphere.000_Sphere.014", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-21.8498, // x
+							-21.346, // y
+							-21.8498, // z
+							{ 43.6997, 22.8789, 43.6997 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								0, // meshIndex
+								850, // numVertices
+								1230, // numIndices
+								{ 255, 255, 255, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-21.8498, // x
+									-21.346, // y
+									-21.8498, // z
+									{ 43.6997, 22.8789, 43.6997 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					},
+					{
+						":kyrka.obj:defaultobject", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-21.8498, // x
+							-19.4978, // y
+							-21.8498, // z
+							{ 43.6997, 21.0308, 43.6997 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								1, // meshIndex
+								748, // numVertices
+								1074, // numIndices
+								{ 255, 0, 0, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-21.8498, // x
+									-19.4978, // y
+									-21.8498, // z
+									{ 43.6997, 21.0308, 43.6997 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					}
+				}
+			},
+			{ // mMeshes
+				{ 2, 0, 0, 850, 1230 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 1, 748, 1074 } // mState mDataSize mID mNumVerts mNumInds
+			},
+			0 // mModelFlags
+		},
+		ModelMC {
+			8, // mMediaOID
+			true, // mIsUsed
+			"/C:/Users/hartm/MT/TNM094/kyrka2.obj", // mMediaPath
+			1584527706, // mLastSrcModDate
+			59610, // mMediaFileSize
+			2, // mState
+			1, // mAlphaType
+			{ // mRootNode
+				":kyrka2.obj", // mPath
+				{ // mTransform
+					1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					1
+				},
+				{ // mBoundingBox
+					-18.4914, // x
+					-22.4736, // y
+					-18.4153, // z
+					{ 37.6878, 25.654, 38.1728 } // MSize x y z
+				},
+				{ // mMeshes
+				},
+				{ // mChildren
+					{
+						":kyrka2.obj:Sphere.000_Sphere.002", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-18.4914, // x
+							-22.4736, // y
+							-18.4153, // z
+							{ 37.6878, 25.654, 38.1728 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								0, // meshIndex
+								992, // numVertices
+								1440, // numIndices
+								{ 255, 255, 255, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-18.4914, // x
+									-22.4736, // y
+									-18.4153, // z
+									{ 37.6878, 25.654, 38.1728 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					},
+					{
+						":kyrka2.obj:defaultobject", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-18.4914, // x
+							-20, // y
+							-18.4153, // z
+							{ 37.6878, 23.1804, 38.1728 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								1, // meshIndex
+								864, // numVertices
+								1248, // numIndices
+								{ 255, 0, 0, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-18.4914, // x
+									-20, // y
+									-18.4153, // z
+									{ 37.6878, 23.1804, 38.1728 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					}
+				}
+			},
+			{ // mMeshes
+				{ 2, 0, 0, 992, 1440 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 1, 864, 1248 } // mState mDataSize mID mNumVerts mNumInds
+			},
+			0 // mModelFlags
+		},
+		SpriteStillMC struct extends {
+			StillMC struct extends {
+				MCItem
+			} {
+			}
+		} {
+			mCache SpriteCache struct extends {
+				ImageCache struct extends {
+					CacheBase
+				} {
+				}
+			} {
+				mSpec SpriteFragSpec struct {
+					mPixelFormat int,
+					mDim IDimension struct extends {
+						iPDBase struct {
+							x int,
+							y int
+						}
+					} {
+					}
+				},
+				mIsPrepared bool
+			}
+		} {
+			12, // mMediaOID
+			true, // mIsUsed
+			"/C:/Users/hartm/MT/TNM094/texturepaint4.png", // mMediaPath
+			1584727487, // mLastSrcModDate
+			52195, // mMediaFileSize
+			2, // mState
+			1, // mAlphaType
+			{ // mCache
+				2, // mState
+				4194304, // mDataSize
+				{ // mSpec
+					1111970369, // mPixelFormat
+					{ 1024, 1024 } // mDim x y
+				},
+				true // mIsPrepared
+			}
+		},
+		ModelMC {
+			13, // mMediaOID
+			true, // mIsUsed
+			"/C:/Users/hartm/MT/TNM094/kyrka3.obj", // mMediaPath
+			1584732974, // mLastSrcModDate
+			60087, // mMediaFileSize
+			2, // mState
+			1, // mAlphaType
+			{ // mRootNode
+				":kyrka3.obj", // mPath
+				{ // mTransform
+					1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					-1,
+					0,
+					0,
+					0,
+					0,
+					1
+				},
+				{ // mBoundingBox
+					-18.4914, // x
+					-22.4736, // y
+					-18.4153, // z
+					{ 37.6878, 25.654, 38.1728 } // MSize x y z
+				},
+				{ // mMeshes
+				},
+				{ // mChildren
+					{
+						":kyrka3.obj:Sphere.000_Sphere.002", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-18.4914, // x
+							-22.4736, // y
+							-18.4153, // z
+							{ 37.6878, 25.654, 38.1728 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								0, // meshIndex
+								992, // numVertices
+								1440, // numIndices
+								{ 255, 255, 255, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-18.4914, // x
+									-22.4736, // y
+									-18.4153, // z
+									{ 37.6878, 25.654, 38.1728 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					},
+					{
+						":kyrka3.obj:defaultobject", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-18.4914, // x
+							-20, // y
+							-18.4153, // z
+							{ 37.6878, 23.1804, 38.1728 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								1, // meshIndex
+								864, // numVertices
+								1248, // numIndices
+								{ 255, 0, 0, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-18.4914, // x
+									-20, // y
+									-18.4153, // z
+									{ 37.6878, 23.1804, 38.1728 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					}
+				}
+			},
+			{ // mMeshes
+				{ 2, 0, 0, 992, 1440 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 1, 864, 1248 } // mState mDataSize mID mNumVerts mNumInds
+			},
+			0 // mModelFlags
 		}
 	},
 	{ // mSCItems
@@ -378,7 +726,7 @@ WOCacheSpec61 MediaCache struct {
 				0,
 				0
 			},
-			6 // mProxyOID
+			14 // mProxyOID
 		}
 	},
 	0 // mFlashTransMode
