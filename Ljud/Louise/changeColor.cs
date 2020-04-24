@@ -10,6 +10,11 @@ public class changeColor : MonoBehaviour
     private ParticleSystem ps3;
     private ParticleSystem ps4;
 
+    private ParticleSystem ps5;
+    private ParticleSystem ps6;
+    private ParticleSystem ps7;
+    private ParticleSystem ps8;
+
 
     public float sizeChange = 2f;
 
@@ -17,14 +22,20 @@ public class changeColor : MonoBehaviour
     public float loudness = 0;
     AudioSource _audio;
 
+
     public GameObject fire1;
     public GameObject fire2;
     public GameObject fire3;
     public GameObject fire4;
+    public GameObject fire5;
+    public GameObject fire6;
+    public GameObject fire7;
+    public GameObject fire8;
 
 
     private Gradient grad_used = new Gradient();
     AnimationCurve used = new AnimationCurve();
+    AnimationCurve used2 = new AnimationCurve();
 
 
     // Start is called before the first frame update
@@ -39,12 +50,19 @@ public class changeColor : MonoBehaviour
         used = new AnimationCurve(new Keyframe[] { new Keyframe(0f, 0.0f),
                                                    new Keyframe(0.5f, 0.0f),
                                                    new Keyframe(1f, 0.0f)});
+        used2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, 0.0f),
+                                                   new Keyframe(0.5f, 0.0f),
+                                                   new Keyframe(1f, 0.0f)});
 
         ps = this.GetComponent<ParticleSystem>();
         ps1 = fire1.GetComponent<ParticleSystem>();
         ps2 = fire2.GetComponent<ParticleSystem>();
         ps3 = fire3.GetComponent<ParticleSystem>();
         ps4 = fire4.GetComponent<ParticleSystem>();
+        ps5 = fire5.GetComponent<ParticleSystem>();
+        ps6 = fire6.GetComponent<ParticleSystem>();
+        ps7 = fire7.GetComponent<ParticleSystem>();
+        ps8 = fire8.GetComponent<ParticleSystem>();
 
 
 
@@ -64,11 +82,16 @@ public class changeColor : MonoBehaviour
     { 
         loudness = GetAveragedVolume() * sensitivity;
 
-        _changeColor(ps, loudness);   _changeSize(ps, loudness);
-        _changeColor(ps1, loudness);  _changeSize(ps1, loudness);
-        _changeColor(ps2, loudness);  _changeSize(ps2, loudness);
-        _changeColor(ps3, loudness);  _changeSize(ps3, loudness);
-        _changeColor(ps4, loudness);  _changeSize(ps4, loudness);
+        _changeColor(ps, loudness);     _changeSize(ps, loudness);
+        _changeColor(ps1, loudness);    _changeSize(ps1, loudness);
+        _changeColor(ps2, loudness);    _changeSize(ps2, loudness);
+        _changeColor(ps3, loudness);    _changeSize(ps3, loudness);
+        _changeColor(ps4, loudness);    _changeSize(ps4, loudness);
+
+        _changeColor(ps5, loudness); _changeSize2(ps5, loudness);
+        _changeColor(ps6, loudness); _changeSize2(ps6, loudness);
+        _changeColor(ps7, loudness); _changeSize2(ps7, loudness);
+        _changeColor(ps8, loudness); _changeSize2(ps8, loudness);
 
     }
 
@@ -132,16 +155,20 @@ public class changeColor : MonoBehaviour
 
         if (loud > 0.5)
         {
-            curve = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used[0].value, 2.5f, lerpValue)),
-                                                        new Keyframe(0.5f, Mathf.Lerp(used[1].value, 1.9f, lerpValue)),
-                                                        new Keyframe(1f, Mathf.Lerp(used[2].value, 0.6f, lerpValue))});
+            curve = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used[0].value, 2f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used[1].value, 1.8f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used[2].value, 1.3f, lerpValue))});
             used = curve; 
          }
          else
          {
-            curve = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used[0].value, 1f, lerpValue)),
-                                                        new Keyframe(0.5f, Mathf.Lerp(used[1].value, 0.6f, lerpValue)),
-                                                        new Keyframe(1f, Mathf.Lerp(used[2].value, 0.8f, lerpValue))});
+            curve = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used[0].value, 0.5f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used[1].value, 0.3f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used[2].value, 0.4f, lerpValue))});
+
+            /*curve = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used[0].value, 3f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used[1].value, 2f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used[2].value, 1f, lerpValue))});*/
             used = curve;
          }
         
@@ -149,8 +176,43 @@ public class changeColor : MonoBehaviour
 
         //Livslängd 
         float lifetime = 5.0f;
-        var main = ps.main;
-        //var main = pSystem.main;
+        var main = pSystem.main;
+        main.startLifetime = lifetime;
+
+    }
+
+    void _changeSize2(ParticleSystem pSystem2, float loud)
+    {
+        var psSol2 = pSystem2.sizeOverLifetime;
+        psSol2.enabled = true;
+        AnimationCurve curve2 = new AnimationCurve();
+
+        float lerpValue = Time.deltaTime * 0.1f;
+
+        if (loud > 0.5)
+        {
+            curve2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used2[0].value, 2f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used2[1].value, 1.8f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used2[2].value, 1.3f, lerpValue))});
+            used2 = curve2;
+        }
+        else
+        {
+           /* curve2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used2[0].value, 0.5f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used2[1].value, 0.3f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used2[2].value, 0.4f, lerpValue))});*/
+
+            curve2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used2[0].value, 3f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used2[1].value, 2f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used2[2].value, 1f, lerpValue))});
+            used2 = curve2;
+        }
+
+        psSol2.size = new ParticleSystem.MinMaxCurve(sizeChange, used2);
+
+        //Livslängd 
+        float lifetime = 5.0f;
+        var main = pSystem2.main;
         main.startLifetime = lifetime;
 
     }

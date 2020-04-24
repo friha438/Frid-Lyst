@@ -9,6 +9,10 @@ public class change_smoke : MonoBehaviour
     private ParticleSystem ps2;
     private ParticleSystem ps3;
     private ParticleSystem ps4;
+    private ParticleSystem ps5;
+    private ParticleSystem ps6;
+    private ParticleSystem ps7;
+    private ParticleSystem ps8;
 
     public float sizeChange = 4f;
 
@@ -20,10 +24,15 @@ public class change_smoke : MonoBehaviour
     public GameObject smoke2;
     public GameObject smoke3;
     public GameObject smoke4;
+    public GameObject smoke5;
+    public GameObject smoke6;
+    public GameObject smoke7;
+    public GameObject smoke8;
 
 
     private Gradient grad_used_smoke = new Gradient();
     AnimationCurve used_smoke = new AnimationCurve();
+    AnimationCurve used_smoke2 = new AnimationCurve();
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +48,9 @@ public class change_smoke : MonoBehaviour
         used_smoke = new AnimationCurve(new Keyframe[] { new Keyframe(0f, 0.0f),
                                                          new Keyframe(0.5f, 0.0f),
                                                          new Keyframe(1f, 0.0f)});
+        used_smoke2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, 0.0f),
+                                                         new Keyframe(0.5f, 0.0f),
+                                                         new Keyframe(1f, 0.0f)});
 
 
         ps = this.GetComponent<ParticleSystem>();
@@ -46,6 +58,10 @@ public class change_smoke : MonoBehaviour
         ps2 = smoke2.GetComponent<ParticleSystem>();
         ps3 = smoke3.GetComponent<ParticleSystem>();
         ps4 = smoke4.GetComponent<ParticleSystem>();
+        ps5 = smoke5.GetComponent<ParticleSystem>();
+        ps6 = smoke6.GetComponent<ParticleSystem>();
+        ps7 = smoke7.GetComponent<ParticleSystem>();
+        ps8 = smoke8.GetComponent<ParticleSystem>();
 
 
         _audio = GetComponent<AudioSource>();
@@ -70,6 +86,11 @@ public class change_smoke : MonoBehaviour
         _changeSmoke(ps2, loudness); _changeSizeSmoke(ps2, loudness);
         _changeSmoke(ps3, loudness); _changeSizeSmoke(ps3, loudness);
         _changeSmoke(ps4, loudness); _changeSizeSmoke(ps4, loudness);
+
+        _changeSmoke(ps5, loudness); _changeSizeSmoke2(ps5, loudness);
+        _changeSmoke(ps6, loudness); _changeSizeSmoke2(ps6, loudness);
+        _changeSmoke(ps7, loudness); _changeSizeSmoke2(ps7, loudness);
+        _changeSmoke(ps8, loudness); _changeSizeSmoke2(ps8, loudness);
 
     }
 
@@ -153,7 +174,41 @@ public class change_smoke : MonoBehaviour
 
         //Livslängd 
         float lifetime = 5.0f;
-        var main = ps.main;
+        var main = pSystem.main;
+        main.startLifetime = lifetime;
+    }
+
+    //Värdena MÅSTE LOUISE HJÄLPA TILL MED
+    void _changeSizeSmoke2(ParticleSystem pSystem2, float loud)
+    {
+
+        var psSol2 = pSystem2.sizeOverLifetime;
+        psSol2.enabled = true;
+
+        AnimationCurve curve2;
+
+        float lerpValue = Time.deltaTime * 0.1f;
+
+        if (loud > 0.5)
+        {                                               //värdena får Louise sätta
+            curve2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used_smoke2[0].value, 2.5f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used_smoke2[1].value, 1.9f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used_smoke2[2].value, 0.6f, lerpValue))});
+            used_smoke2 = curve2;
+        }
+        else
+        {                                               //värdena får Louise sätta
+            curve2 = new AnimationCurve(new Keyframe[] { new Keyframe(0f, Mathf.Lerp(used_smoke2[0].value, 1.5f, lerpValue)),
+                                                        new Keyframe(0.5f, Mathf.Lerp(used_smoke2[1].value, 1f, lerpValue)),
+                                                        new Keyframe(1f, Mathf.Lerp(used_smoke2[2].value, 0.5f, lerpValue))});
+            used_smoke2 = curve2;
+        }
+
+        psSol2.size = new ParticleSystem.MinMaxCurve(sizeChange, used_smoke2); //sizeChange kan ändras i unity.
+
+        //Livslängd 
+        float lifetime = 5.0f;
+        var main = pSystem2.main;
         main.startLifetime = lifetime;
     }
 
