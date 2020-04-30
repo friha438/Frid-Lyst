@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{8815CE24-E330-3BD6-F396-C58B07979A18}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/changeColor.cs">
+    <Files>
+      <File FileName="Assets/changeColor.cs" Line="98" Column="17" />
+      <File FileName="Assets/change_smoke.cs" Line="176" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="17a3aa4e-58f4-4372-ba31-45724a0a0d10" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
