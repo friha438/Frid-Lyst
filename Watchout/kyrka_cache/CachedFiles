@@ -50,134 +50,6 @@ WOCacheSpec61 MediaCache struct {
 	1111970369, // mPixelCompOrder
 	4, // mShaderLevel
 	{ // mItems
-		VideoMC struct extends {
-			ContMC struct extends {
-				MCItem
-			} {
-				mPlayer PlayerHint enum {
-					kPHNone 0,
-					kPHQuickTime 1,
-					kPHDirectShow 2,
-					kPHImageSequence 3
-				},
-				mFilterGraph reference FilterGraphList struct {
-					mList list FilterGraphNode struct extends {
-						FilterSpec struct {
-							mFilterUID DF_GUID struct {
-								Data1 int,
-								Data2 int,
-								Data3 int,
-								Data4 array 8 int
-							},
-							mOutputName string,
-							mTargetInputPinName string
-						}
-					} {
-						mMoreOutputs list FilterGraphList false
-					} false
-				} false
-			}
-		} {
-			mFormat VideoFormat enum {
-				kVMC_Unspecified 0,
-				kVMC_MPEG 1,
-				kVMC_H264 2,
-				kVMC_MJPG 3,
-				kVMC_WMV 4,
-				kVMC_HAPQ 5
-			},
-			mActivePaths reference PathList struct {
-				mPaths list CuePath struct {
-					mHashValue int,
-					mLeafID int,
-					mPath list CuePathElem struct {
-						mID int
-					} false
-				} false
-			} false,
-			mNativePlayer PlayerHint,
-			mAllowHardwareAcc bool,
-			mDispFiles list DispFile struct {
-				MFile string
-			} false
-		} {
-			3, // mMediaOID
-			false, // mIsUsed
-			"fire.mov", // mMediaPath
-			1583225734, // mLastSrcModDate
-			10481318, // mMediaFileSize
-			2, // mState
-			1, // mAlphaType
-			2, // mPlayer
-			{ // mFilterGraph
-				{ // mList
-					{
-						{ 3828804533, 21071, 4558, // mFilterUID Data1 Data2 Data3 Data4
-							{ 159, 83, 0, 32, 175, 11, 167, 112 }
-						},
-						"", // mOutputName
-						"", // mTargetInputPinName
-						{ // mMoreOutputs
-						}
-					},
-					{
-						{ 710278930, 5719, 16855, // mFilterUID Data1 Data2 Data3 Data4
-							{ 157, 45, 162, 205, 198, 151, 143, 242 }
-						},
-						"Output", // mOutputName
-						"Input", // mTargetInputPinName
-						{ // mMoreOutputs
-							{
-								{ // mList
-									{
-										{ 3790708920, 48878, 18701, // mFilterUID Data1 Data2 Data3 Data4
-											{ 186, 124, 6, 108, 64, 181, 226, 185 }
-										},
-										"Audio Output 0", // mOutputName
-										"In", // mTargetInputPinName
-										{ // mMoreOutputs
-										}
-									},
-									{
-										{ 2380471941, 4348, 16520, // mFilterUID Data1 Data2 Data3 Data4
-											{ 136, 97, 224, 236, 142, 112, 116, 74 }
-										},
-										"Out", // mOutputName
-										"Input", // mTargetInputPinName
-										{ // mMoreOutputs
-										}
-									}
-								}
-							}
-						}
-					},
-					{
-						{ 2528760045, 36115, 16753, // mFilterUID Data1 Data2 Data3 Data4
-							{ 169, 131, 184, 77, 136, 214, 39, 190 }
-						},
-						"Video Output 0", // mOutputName
-						"In", // mTargetInputPinName
-						{ // mMoreOutputs
-						}
-					},
-					{
-						{ 1903629632, 8215, 4559, // mFilterUID Data1 Data2 Data3 Data4
-							{ 174, 38, 0, 32, 175, 215, 152, 33 }
-						},
-						"Video", // mOutputName
-						"In", // mTargetInputPinName
-						{ // mMoreOutputs
-						}
-					}
-				}
-			},
-			2, // mFormat
-			#0, // mActivePaths
-			2, // mNativePlayer
-			true, // mAllowHardwareAcc
-			{ // mDispFiles
-			}
-		},
 		ModelMC struct extends {
 			MCItem
 		} {
@@ -225,15 +97,15 @@ WOCacheSpec61 MediaCache struct {
 			} false,
 			mModelFlags int
 		} {
-			7, // mMediaOID
-			false, // mIsUsed
-			"/C:/Users/hartm/MT/TNM094/kyrka.obj", // mMediaPath
-			1584525626, // mLastSrcModDate
-			53903, // mMediaFileSize
+			22, // mMediaOID
+			true, // mIsUsed
+			"klar_enkel.obj", // mMediaPath
+			1587911807, // mLastSrcModDate
+			14577, // mMediaFileSize
 			2, // mState
 			1, // mAlphaType
 			{ // mRootNode
-				":kyrka.obj", // mPath
+				":klar_enkel.obj", // mPath
 				{ // mTransform
 					1,
 					0,
@@ -253,16 +125,16 @@ WOCacheSpec61 MediaCache struct {
 					1
 				},
 				{ // mBoundingBox
-					-21.8498, // x
-					-21.346, // y
-					-21.8498, // z
-					{ 43.6997, 22.8789, 43.6997 } // MSize x y z
+					-10.7374, // x
+					-8.0469, // y
+					-12.8195, // z
+					{ 21.4996, 23.8502, 21.9836 } // MSize x y z
 				},
 				{ // mMeshes
 				},
 				{ // mChildren
 					{
-						":kyrka.obj:Sphere.000_Sphere.014", // mPath
+						":klar_enkel.obj:Cube.007_Cube.004", // mPath
 						{ // mTransform
 							1,
 							0,
@@ -282,22 +154,22 @@ WOCacheSpec61 MediaCache struct {
 							1
 						},
 						{ // mBoundingBox
-							-21.8498, // x
-							-21.346, // y
-							-21.8498, // z
-							{ 43.6997, 22.8789, 43.6997 } // MSize x y z
+							6.56745, // x
+							4.20332, // y
+							-12.3649, // z
+							{ 4, 11.6, 4 } // MSize x y z
 						},
 						{ // mMeshes
 							{
 								0, // meshIndex
-								850, // numVertices
-								1230, // numIndices
+								18, // numVertices
+								24, // numIndices
 								{ 255, 255, 255, 255 }, // defaultColor r g b a
 								{ // boundingBox
-									-21.8498, // x
-									-21.346, // y
-									-21.8498, // z
-									{ 43.6997, 22.8789, 43.6997 } // MSize x y z
+									6.56745, // x
+									4.20332, // y
+									-12.3649, // z
+									{ 4, 11.6, 4 } // MSize x y z
 								}
 							}
 						},
@@ -305,7 +177,7 @@ WOCacheSpec61 MediaCache struct {
 						}
 					},
 					{
-						":kyrka.obj:defaultobject", // mPath
+						":klar_enkel.obj:Cube.010_Cube.006", // mPath
 						{ // mTransform
 							1,
 							0,
@@ -325,22 +197,151 @@ WOCacheSpec61 MediaCache struct {
 							1
 						},
 						{ // mBoundingBox
-							-21.8498, // x
-							-19.4978, // y
-							-21.8498, // z
-							{ 43.6997, 21.0308, 43.6997 } // MSize x y z
+							6.56745, // x
+							4.20333, // y
+							4.61291, // z
+							{ 4, 11.6, 4 } // MSize x y z
 						},
 						{ // mMeshes
 							{
 								1, // meshIndex
-								748, // numVertices
-								1074, // numIndices
+								18, // numVertices
+								24, // numIndices
 								{ 255, 0, 0, 255 }, // defaultColor r g b a
 								{ // boundingBox
-									-21.8498, // x
-									-19.4978, // y
-									-21.8498, // z
-									{ 43.6997, 21.0308, 43.6997 } // MSize x y z
+									6.56745, // x
+									4.20333, // y
+									4.61291, // z
+									{ 4, 11.6, 4 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					},
+					{
+						":klar_enkel.obj:Cube.011_Cube.007", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-10.4253, // x
+							4.20333, // y
+							4.61291, // z
+							{ 4, 11.6, 4 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								2, // meshIndex
+								18, // numVertices
+								24, // numIndices
+								{ 0, 255, 0, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-10.4253, // x
+									4.20333, // y
+									4.61291, // z
+									{ 4, 11.6, 4 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					},
+					{
+						":klar_enkel.obj:Cube.012_Cube.008", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-10.4253, // x
+							4.20333, // y
+							-12.3649, // z
+							{ 4, 11.6, 4 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								3, // meshIndex
+								18, // numVertices
+								24, // numIndices
+								{ 0, 0, 255, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-10.4253, // x
+									4.20333, // y
+									-12.3649, // z
+									{ 4, 11.6, 4 } // MSize x y z
+								}
+							}
+						},
+						{ // mChildren
+						}
+					},
+					{
+						":klar_enkel.obj:Sphere", // mPath
+						{ // mTransform
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1,
+							0,
+							0,
+							0,
+							0,
+							1
+						},
+						{ // mBoundingBox
+							-10.7374, // x
+							-8.0469, // y
+							-12.8195, // z
+							{ 21.4996, 14.2479, 21.9836 } // MSize x y z
+						},
+						{ // mMeshes
+							{
+								4, // meshIndex
+								374, // numVertices
+								528, // numIndices
+								{ 0, 255, 255, 255 }, // defaultColor r g b a
+								{ // boundingBox
+									-10.7374, // x
+									-8.0469, // y
+									-12.8195, // z
+									{ 21.4996, 14.2479, 21.9836 } // MSize x y z
 								}
 							}
 						},
@@ -350,312 +351,11 @@ WOCacheSpec61 MediaCache struct {
 				}
 			},
 			{ // mMeshes
-				{ 2, 0, 0, 850, 1230 }, // mState mDataSize mID mNumVerts mNumInds
-				{ 2, 0, 1, 748, 1074 } // mState mDataSize mID mNumVerts mNumInds
-			},
-			0 // mModelFlags
-		},
-		ModelMC {
-			8, // mMediaOID
-			true, // mIsUsed
-			"/C:/Users/hartm/MT/TNM094/kyrka2.obj", // mMediaPath
-			1584527706, // mLastSrcModDate
-			59610, // mMediaFileSize
-			2, // mState
-			1, // mAlphaType
-			{ // mRootNode
-				":kyrka2.obj", // mPath
-				{ // mTransform
-					1,
-					0,
-					0,
-					0,
-					0,
-					-1,
-					0,
-					0,
-					0,
-					0,
-					-1,
-					0,
-					0,
-					0,
-					0,
-					1
-				},
-				{ // mBoundingBox
-					-18.4914, // x
-					-22.4736, // y
-					-18.4153, // z
-					{ 37.6878, 25.654, 38.1728 } // MSize x y z
-				},
-				{ // mMeshes
-				},
-				{ // mChildren
-					{
-						":kyrka2.obj:Sphere.000_Sphere.002", // mPath
-						{ // mTransform
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1
-						},
-						{ // mBoundingBox
-							-18.4914, // x
-							-22.4736, // y
-							-18.4153, // z
-							{ 37.6878, 25.654, 38.1728 } // MSize x y z
-						},
-						{ // mMeshes
-							{
-								0, // meshIndex
-								992, // numVertices
-								1440, // numIndices
-								{ 255, 255, 255, 255 }, // defaultColor r g b a
-								{ // boundingBox
-									-18.4914, // x
-									-22.4736, // y
-									-18.4153, // z
-									{ 37.6878, 25.654, 38.1728 } // MSize x y z
-								}
-							}
-						},
-						{ // mChildren
-						}
-					},
-					{
-						":kyrka2.obj:defaultobject", // mPath
-						{ // mTransform
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1
-						},
-						{ // mBoundingBox
-							-18.4914, // x
-							-20, // y
-							-18.4153, // z
-							{ 37.6878, 23.1804, 38.1728 } // MSize x y z
-						},
-						{ // mMeshes
-							{
-								1, // meshIndex
-								864, // numVertices
-								1248, // numIndices
-								{ 255, 0, 0, 255 }, // defaultColor r g b a
-								{ // boundingBox
-									-18.4914, // x
-									-20, // y
-									-18.4153, // z
-									{ 37.6878, 23.1804, 38.1728 } // MSize x y z
-								}
-							}
-						},
-						{ // mChildren
-						}
-					}
-				}
-			},
-			{ // mMeshes
-				{ 2, 0, 0, 992, 1440 }, // mState mDataSize mID mNumVerts mNumInds
-				{ 2, 0, 1, 864, 1248 } // mState mDataSize mID mNumVerts mNumInds
-			},
-			0 // mModelFlags
-		},
-		SpriteStillMC struct extends {
-			StillMC struct extends {
-				MCItem
-			} {
-			}
-		} {
-			mCache SpriteCache struct extends {
-				ImageCache struct extends {
-					CacheBase
-				} {
-				}
-			} {
-				mSpec SpriteFragSpec struct {
-					mPixelFormat int,
-					mDim IDimension struct extends {
-						iPDBase struct {
-							x int,
-							y int
-						}
-					} {
-					}
-				},
-				mIsPrepared bool
-			}
-		} {
-			12, // mMediaOID
-			true, // mIsUsed
-			"/C:/Users/hartm/MT/TNM094/texturepaint4.png", // mMediaPath
-			1584727487, // mLastSrcModDate
-			52195, // mMediaFileSize
-			2, // mState
-			1, // mAlphaType
-			{ // mCache
-				2, // mState
-				4194304, // mDataSize
-				{ // mSpec
-					1111970369, // mPixelFormat
-					{ 1024, 1024 } // mDim x y
-				},
-				true // mIsPrepared
-			}
-		},
-		ModelMC {
-			13, // mMediaOID
-			true, // mIsUsed
-			"/C:/Users/hartm/MT/TNM094/kyrka3.obj", // mMediaPath
-			1584732974, // mLastSrcModDate
-			60087, // mMediaFileSize
-			2, // mState
-			1, // mAlphaType
-			{ // mRootNode
-				":kyrka3.obj", // mPath
-				{ // mTransform
-					1,
-					0,
-					0,
-					0,
-					0,
-					-1,
-					0,
-					0,
-					0,
-					0,
-					-1,
-					0,
-					0,
-					0,
-					0,
-					1
-				},
-				{ // mBoundingBox
-					-18.4914, // x
-					-22.4736, // y
-					-18.4153, // z
-					{ 37.6878, 25.654, 38.1728 } // MSize x y z
-				},
-				{ // mMeshes
-				},
-				{ // mChildren
-					{
-						":kyrka3.obj:Sphere.000_Sphere.002", // mPath
-						{ // mTransform
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1
-						},
-						{ // mBoundingBox
-							-18.4914, // x
-							-22.4736, // y
-							-18.4153, // z
-							{ 37.6878, 25.654, 38.1728 } // MSize x y z
-						},
-						{ // mMeshes
-							{
-								0, // meshIndex
-								992, // numVertices
-								1440, // numIndices
-								{ 255, 255, 255, 255 }, // defaultColor r g b a
-								{ // boundingBox
-									-18.4914, // x
-									-22.4736, // y
-									-18.4153, // z
-									{ 37.6878, 25.654, 38.1728 } // MSize x y z
-								}
-							}
-						},
-						{ // mChildren
-						}
-					},
-					{
-						":kyrka3.obj:defaultobject", // mPath
-						{ // mTransform
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1,
-							0,
-							0,
-							0,
-							0,
-							1
-						},
-						{ // mBoundingBox
-							-18.4914, // x
-							-20, // y
-							-18.4153, // z
-							{ 37.6878, 23.1804, 38.1728 } // MSize x y z
-						},
-						{ // mMeshes
-							{
-								1, // meshIndex
-								864, // numVertices
-								1248, // numIndices
-								{ 255, 0, 0, 255 }, // defaultColor r g b a
-								{ // boundingBox
-									-18.4914, // x
-									-20, // y
-									-18.4153, // z
-									{ 37.6878, 23.1804, 38.1728 } // MSize x y z
-								}
-							}
-						},
-						{ // mChildren
-						}
-					}
-				}
-			},
-			{ // mMeshes
-				{ 2, 0, 0, 992, 1440 }, // mState mDataSize mID mNumVerts mNumInds
-				{ 2, 0, 1, 864, 1248 } // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 0, 18, 24 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 1, 18, 24 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 2, 18, 24 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 3, 18, 24 }, // mState mDataSize mID mNumVerts mNumInds
+				{ 2, 0, 4, 374, 528 } // mState mDataSize mID mNumVerts mNumInds
 			},
 			0 // mModelFlags
 		}
@@ -693,40 +393,6 @@ WOCacheSpec61 MediaCache struct {
 				0
 			},
 			2 // mProxyOID
-		},
-		SCItem {
-			{ "ExitOpac", 2, 3620399252 }, // mRecipe mIdentifiers mNumbIdentifiers mHash
-			4, // mLevel
-			{ // mByteCode
-				476,
-				
-				0003FFFFFEFF4900435441421C000000EF0000000003FFFF050000001C00
-				000000010000E80000008000000002000100010006008800000000000000
-				980000000300020001000A00A400000000000000B4000000020000000100
-				02008800000000000000C20000000200020001000A008800000000000000
-				CB0000000300000001000200D8000000000000005F626C656E6400AB0100
-				03000100040001000000000000005F626C656E64496D6700ABAB04000C00
-				0100010001000000000000005F626C656E644F66667353636C005F6F7061
-				63697479005F736F75726365496D6700ABAB04000C000100010001000000
-				0000000070735F335F30004D6963726F736F66742028522920484C534C20
-				53686164657220436F6D70696C657220392E32392E3935322E3331313100
-				5100000503000FA00AD723BC0000000000000000000000001F0000020500
-				0080000003901F0000020000009000080FA01F0000020000009002080FA0
-				04000004000003800000E4900000EEA00000E4A04200000300000F800000
-				E4800208E4A04200000301000F800000E4900008E4A01200000402000F80
-				010000A00000E4800100E4800200000300000F800200FF80030000A00500
-				000300080F800200E480020000A04100000100000F80FFFF0000
-			},
-			{ // mTotalItemCounts
-				0,
-				0,
-				0
-			},
-			{ // mExtraTextureIndexes
-				0,
-				0
-			},
-			14 // mProxyOID
 		}
 	},
 	0 // mFlashTransMode
